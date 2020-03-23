@@ -2,7 +2,7 @@ const Telegraf = require('telegraf');
 const db = require('./components/db');
 const bot = new Telegraf(process.env.BOT_TOKEN);
 require('./locale');
-lang = "fa";
+lang = "en";
 
 // Checking blocked users function
 
