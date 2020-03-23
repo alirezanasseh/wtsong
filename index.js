@@ -1,7 +1,6 @@
 const Telegraf = require('telegraf');
-const BotHash = "653850612:AAGRoODSPCSYUuzecuAQwzPpzx_Q6PYZjCM";
 const db = require('./components/db');
-const bot = new Telegraf(BotHash);
+const bot = new Telegraf(process.env.BOT_TOKEN);
 require('./locale');
 lang = "fa";
 
@@ -493,11 +492,6 @@ bot.on('callback_query', ctx => {
                 }else{
 
                     // Has not given feedback
-
-                    // The answer given
-
-                    let answer = res.answer;
-
                     // Saving the feedback in the database
 
                     mydb.updateOne({
@@ -530,7 +524,6 @@ bot.on('callback_query', ctx => {
                             // current score of the answerer user
 
                             let score = res.score;
-                            let responder_name = res.first_name;
 
                             switch (ans) {
                                 case "correct":
